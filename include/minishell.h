@@ -6,7 +6,7 @@
 /*   By: pag <pag@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/03 15:12:37 by raphaelcarb       #+#    #+#             */
-/*   Updated: 2024/11/14 10:40:08 by pag              ###   ########.fr       */
+/*   Updated: 2024/11/15 10:38:40 by pag              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,8 +90,6 @@ typedef struct s_data // donnees principales
 //-----------------------------------------------------------------------
 //->BUILTINS
 void	ft_exit(int i); //clear
-//	#############  builtins.c
-
 //echo.c
 bool	echo_n(char *argv);
 int     check_dollard(char *str);
@@ -129,9 +127,9 @@ int		is_builtin(char *cmd);
 //---------------------------------------------------------------------------
 // path.c
 char	*find_command_path(char *cmd);
-
 //INIT
 //--------------------------------------------------------------------
+
 // init_lst
 void	ft_lstadd_back_list(t_env **env, t_env *n);
 t_env	*ft_env_new(char **envp, int i);

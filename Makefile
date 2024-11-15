@@ -1,17 +1,17 @@
 # **************************************************************************** #
 #                                                                              #
 #                                                         :::      ::::::::    #
-#    makefile                                           :+:      :+:    :+:    #
+#    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: almarico <almarico@student.42lehavre.fr>   +#+  +:+       +#+         #
+#    By: pag <pag@student.42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/09/03 18:39:18 by raphaelcarb       #+#    #+#              #
-#    Updated: 2024/11/09 20:57:45 by almarico         ###   ########.fr        #
+#    Updated: 2024/11/15 16:34:35 by pag              ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC = clang
-CFLAGS = -Wall -Werror -Wextra -g3 -gdwarf-4
+CFLAGS = -Wall -Werror -Wextra -g3
 LDFLAGS = -lreadline -ltinfo
 EXE = Minishell
 RM = rm -rf
@@ -19,11 +19,11 @@ RM = rm -rf
 LIBFT_PATH = ./LIBFT
 LIBFT = $(LIBFT_PATH)/libft.a
 
-src = 	parsing/init.c \
+src = executing/path.c\
+		parsing/init.c \
 		parsing/utils_init.c \
 		parsing/utils.c \
 		main.c 
-
 
 srco = $(src:.c=.o)
 

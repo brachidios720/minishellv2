@@ -20,8 +20,6 @@ void	ft_lstadd_back_list(t_env **env, t_env *new_node)
 t_env	*ft_env_new(char **envp, int i)
 {
 	t_env	*newnode;
-	
-
 	newnode = malloc(sizeof(t_env));
 	if (!newnode)
 		return (NULL);

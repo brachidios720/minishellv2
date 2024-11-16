@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: pag <pag@student.42.fr>                    +#+  +:+       +#+         #
+#    By: spagliar <spagliar@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/09/03 18:39:18 by raphaelcarb       #+#    #+#              #
-#    Updated: 2024/11/15 16:34:35 by pag              ###   ########.fr        #
+#    Updated: 2024/11/16 15:16:15 by spagliar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,6 +20,10 @@ LIBFT_PATH = ./LIBFT
 LIBFT = $(LIBFT_PATH)/libft.a
 
 src = executing/path.c\
+		executing/builtin/cd_builtin.c\
+		executing/builtin/cd_utils.c\
+		executing/builtin/echo_builtin.c\
+		executing/builtin/echo_utils.c\
 		parsing/init.c \
 		parsing/utils_init.c \
 		parsing/utils.c \

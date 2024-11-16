@@ -3,15 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: spagliar <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: spagliar <spagliar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/26 02:14:51 by spagliar          #+#    #+#             */
-/*   Updated: 2023/01/26 02:15:23 by spagliar         ###   ########.fr       */
+/*   Updated: 2024/11/16 15:24:25 by spagliar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int	ft_strlen(char *str)
-
 {
 	int	i;
 
@@ -19,6 +18,6 @@ int	ft_strlen(char *str)
 	while (str[i] != '\0')
 	{
 		i++;
-	}	
+	}
 	return (i);
 }

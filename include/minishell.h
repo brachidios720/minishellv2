@@ -6,7 +6,7 @@
 /*   By: spagliar <spagliar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/03 15:12:37 by raphaelcarb       #+#    #+#             */
-/*   Updated: 2024/11/16 11:56:22 by spagliar         ###   ########.fr       */
+/*   Updated: 2024/11/16 17:47:13 by spagliar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,35 +43,34 @@
 # define RESET "\033[0m"
 
 extern int	g_signal;		//variable globale pour gestion des signaux
-
-typedef enum   s_redir
+typedef enum s_redir
 {
-    NO_REDIR,
-    INPUT_FILE,
-    HEREDOC,
-    OUTPUT_FILE,
-    APPEND,
-}      t_redir;
+	NO_REDIR,
+	INPUT_FILE,
+	HEREDOC,
+	OUTPUT_FILE,
+	APPEND,
+}	t_redir;
 
 //#define close(X) printf("CLOSE: %d\n", X); close(X) 
 
 typedef struct s_cmd
 {
-    bool        heredoc;
+	bool		heredoc;
 	char		*delimiter;
-    char        **cmd;
-    char        *in_file;
-    char        *out_file;
+	char		**cmd;
+	char		*in_file;
+	char		*out_file;
 	int			input_fd;
 	int			output_fd;
-	struct	s_cmd *next;
+	struct s_cmd *next;
 }	t_cmd;
 
 typedef struct s_env
 {
-	char 			*content;
+	char			*content;
 	struct s_env	*next;
-} t_env;
+}	t_env;
 
 typedef struct s_data // donnees principales
 {
@@ -84,15 +83,26 @@ typedef struct s_data // donnees principales
 	int		last_exit_code;
 	struct t_cmd *cmd;
 
-} t_data;
+}	t_data;
 
-//................................EXECUTING.................................
+//....................   EXECUTING.................................
 // path.c
 char	*find_command_path(char *cmd);
-//builtin->echo
+//builtin->echo_builtin.c
 void	ft_echo(char **argv, t_data *data, int fd);
+void	ft_args_for_echo(char **argv, t_data *data, int fd);
+char	*expand_variables_in_string(char *str, t_data *data);
 //buitin->echo_utils.c
 bool	echo_n(char *argv);
+//builtin->cd_builtin.c
+void	ft_update_env(t_env **env, char *old_pwd, char *new_pwd);
+void	ft_execute_cd(t_env **env, char *target_dir);
+void	ft_cd(t_env **env, char **target_dir);
+//builtin->cd_utils
+char	*ft_parse_target_dir(char **args, t_env **env);
+int		ft_change_directory(char *target_dir);
+int		ft_check_cd_args(char **args);
+/*
 //export.c
 void    export_with_nothing(t_env *env);
 void    export_with_variable(t_env *env, char *new_var);
@@ -100,16 +110,6 @@ void    ft_export(t_env **env, char **args);
 //unset.c
 void    unset_with_variable(t_env **env, char *my_var);
 int     ft_unset(t_env **env, char **args);
-//  cd.c
-void    ft_change_cd(t_env **env, char *new_dir);
-void    ft_change_env(t_env **env, char *name, char *new_value);
-char	*ft_get_env_value(char *name, t_env **env);
-void	ft_change_env(t_env **env, char *name, char *new_value);
-int		ft_change_directory(char *target_dir);
-void	ft_update_env(t_env **env, char *old_pwd, char *new_pwd);
-char	*ft_get_target_dir(char *target_dir, t_env **env);
-void	ft_cd(t_env **env, char **target_dir);
-void	init_pwd(t_env **env);
 
 //	env.c
 void	ft_env(t_env **env);
@@ -119,21 +119,20 @@ int    ft_pwd(void);
 
 //	utils_builtins.c
 int		is_builtin(char *cmd);
-
+*/
 //INIT
 //--------------------------------------------------------------------
-
-// init_lst
+//init
+t_env	*init_env(char **envp);
+void	init_pwd(t_env **env);
+//utils_init.c
 void	ft_lstadd_back_list(t_env **env, t_env *n);
 t_env	*ft_env_new(char **envp, int i);
+void	ft_change_env(t_env **env, char *name, char *new_value);
+
+void	init_data(t_data *data);
+void	init_cmd(t_cmd *cmd);
 t_cmd	*ft_lsttnew(t_data *data, int i, t_cmd *cmd);
-
-//init
-void    init_pwd(t_env **env);
-void    init_data(t_data *data);
-void    init_cmd(t_cmd *cmd);
-t_env	*init_env(char **envp);
-
 // parsing
 //------------------------------------------------------------------
 //->ft_utils_cmd.c

@@ -3,13 +3,12 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: spagliar <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: spagliar <spagliar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/07 10:27:45 by spagliar          #+#    #+#             */
-/*   Updated: 2023/05/07 10:28:17 by spagliar         ###   ########.fr       */
+/*   Updated: 2024/11/16 15:19:36 by spagliar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "libft.h"
 
 static char	*ft_zero(void)
 {
@@ -67,4 +66,3 @@ char	*ft_itoa(int n)
 	buff[i] = '\0';
 	return (ft_return(buff));
 }
-

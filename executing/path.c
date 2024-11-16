@@ -6,7 +6,7 @@
 /*   By: spagliar <spagliar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/16 10:18:43 by spagliar          #+#    #+#             */
-/*   Updated: 2024/11/16 10:18:50 by spagliar         ###   ########.fr       */
+/*   Updated: 2024/11/16 17:45:55 by spagliar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,3 +49,4 @@ int	main(int argc, char **argv)
 		printf ("Commande non trouvée dans PATH.\n");
 	return (0);
 }
+//attention verif chemins relatifs et absolus

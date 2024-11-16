@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putdeci.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: spagliar <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: spagliar <spagliar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 12:18:20 by spagliar          #+#    #+#             */
-/*   Updated: 2023/05/26 12:18:21 by spagliar         ###   ########.fr       */
+/*   Updated: 2024/11/16 15:24:07 by spagliar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"ft_printf.h"
+#include "ft_printf.h"
 
 char	*ft_zero(void)
 

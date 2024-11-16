@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pag <pag@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: spagliar <spagliar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/03 15:12:37 by raphaelcarb       #+#    #+#             */
-/*   Updated: 2024/11/15 10:38:40 by pag              ###   ########.fr       */
+/*   Updated: 2024/11/16 11:56:22 by spagliar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,17 +86,13 @@ typedef struct s_data // donnees principales
 
 } t_data;
 
-//SRC
-//-----------------------------------------------------------------------
-//->BUILTINS
-void	ft_exit(int i); //clear
-//echo.c
-bool	echo_n(char *argv);
-int     check_dollard(char *str);
-char    *expand_var(char *str, t_data *data);
-char	*ft_itoa(int n);
+//................................EXECUTING.................................
+// path.c
+char	*find_command_path(char *cmd);
+//builtin->echo
 void	ft_echo(char **argv, t_data *data, int fd);
-char    *cut_tab_dollard(char *str);
+//buitin->echo_utils.c
+bool	echo_n(char *argv);
 //export.c
 void    export_with_nothing(t_env *env);
 void    export_with_variable(t_env *env, char *new_var);
@@ -123,10 +119,7 @@ int    ft_pwd(void);
 
 //	utils_builtins.c
 int		is_builtin(char *cmd);
-// EXEC
-//---------------------------------------------------------------------------
-// path.c
-char	*find_command_path(char *cmd);
+
 //INIT
 //--------------------------------------------------------------------
 

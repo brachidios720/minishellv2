@@ -6,7 +6,7 @@
 #    By: spagliar <spagliar@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/09/03 18:39:18 by raphaelcarb       #+#    #+#              #
-#    Updated: 2024/11/16 15:16:15 by spagliar         ###   ########.fr        #
+#    Updated: 2024/11/16 19:02:58 by spagliar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,6 +24,10 @@ src = executing/path.c\
 		executing/builtin/cd_utils.c\
 		executing/builtin/echo_builtin.c\
 		executing/builtin/echo_utils.c\
+		executing/builtin/env_builtin.c\
+		executing/builtin/export_buitin.c\
+		executing/builtin/unset_builtin.c\
+		executing/builtin/utils_builtin.c\
 		parsing/init.c \
 		parsing/utils_init.c \
 		parsing/utils.c \

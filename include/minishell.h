@@ -6,7 +6,7 @@
 /*   By: spagliar <spagliar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/03 15:12:37 by raphaelcarb       #+#    #+#             */
-/*   Updated: 2024/11/16 17:47:13 by spagliar         ###   ########.fr       */
+/*   Updated: 2024/11/16 19:03:49 by spagliar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,10 +90,15 @@ typedef struct s_data // donnees principales
 char	*find_command_path(char *cmd);
 //builtin->echo_builtin.c
 void	ft_echo(char **argv, t_data *data, int fd);
-void	ft_args_for_echo(char **argv, t_data *data, int fd);
-char	*expand_variables_in_string(char *str, t_data *data);
-//buitin->echo_utils.c
 bool	echo_n(char *argv);
+void	ft_args_for_echo(char **argv, t_data *data, int fd);
+//buitin->echo_utils.c //parsing Raph
+char	*expand_variables_in_string(char *str, t_data *data);
+char	*ft_itoa_m(int n);
+char    *ft_strjoinn(char const *s1, char const *s2);
+char	*ft_strjoin_char(char *s1, char c);
+char 	*last_exit(t_data *data);
+int		check_dollard(char *str);
 //builtin->cd_builtin.c
 void	ft_update_env(t_env **env, char *old_pwd, char *new_pwd);
 void	ft_execute_cd(t_env **env, char *target_dir);
@@ -102,24 +107,20 @@ void	ft_cd(t_env **env, char **target_dir);
 char	*ft_parse_target_dir(char **args, t_env **env);
 int		ft_change_directory(char *target_dir);
 int		ft_check_cd_args(char **args);
-/*
-//export.c
+//builtin->pwd.c
+void	ft_env(t_env **env);
+//builtin->export.c
 void    export_with_nothing(t_env *env);
 void    export_with_variable(t_env *env, char *new_var);
 void    ft_export(t_env **env, char **args);
-//unset.c
+//builtin->unset_builtin.c
 void    unset_with_variable(t_env **env, char *my_var);
 int     ft_unset(t_env **env, char **args);
-
-//	env.c
+//builtin->env.c
 void	ft_env(t_env **env);
-
-//ft_pwd.c
-int    ft_pwd(void);
-
-//	utils_builtins.c
+//builtin->utils_buitlin.c
 int		is_builtin(char *cmd);
-*/
+
 //INIT
 //--------------------------------------------------------------------
 //init

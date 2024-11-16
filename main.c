@@ -21,27 +21,14 @@ void	print_minishell(void)
 
 int main(int ac, char **av, char **envp)
 {
-    t_data	*data;
-	t_cmd	*cmd;
-	t_env	*env;
-
-	data = NULL;
-	cmd = NULL;
-	env = NULL;
-	(void)ac;
 	(void)av;
     if(ac != 1)
-    {
         printf(RED"to many argument\n"RESET);
-    }
-    print_minishell();
-	data = malloc(sizeof(t_data));
-	if (data == NULL)
-        return(1);
-	env = init_env(envp);
-	init_pwd(&env);
-	free (cmd);
-	free (data);
+	else 
+	{
+   		print_minishell();
+		ft_start(envp);
+	}
 	return (0);
 }
 

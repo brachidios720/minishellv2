@@ -13,7 +13,7 @@
 CC = clang
 CFLAGS = -Wall -Werror -Wextra -g3 -gdwarf-4
 LDFLAGS = -lreadline -ltinfo
-EXE = Minishell
+EXE = minishell
 RM = rm -rf
 
 LIBFT_PATH = ./LIBFT
@@ -21,7 +21,11 @@ LIBFT = $(LIBFT_PATH)/libft.a
 
 src = 	parsing/init.c \
 		parsing/utils_init.c \
+		parsing/utils_init2.c \
 		parsing/utils.c \
+		parsing/start.c \
+		parsing/ft_check_line_error.c \
+		parsing/split_quote.c \
 		main.c 
 
 

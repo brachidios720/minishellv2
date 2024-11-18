@@ -6,7 +6,7 @@
 /*   By: spagliar <spagliar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/16 10:18:43 by spagliar          #+#    #+#             */
-/*   Updated: 2024/11/16 17:45:55 by spagliar         ###   ########.fr       */
+/*   Updated: 2024/11/18 17:34:02 by spagliar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,20 +33,20 @@ char	*find_command_path(char *cmd)
 	return (NULL);
 }
 
-int	main(int argc, char **argv)
-{
-	char	*result;
+// int	main(int argc, char **argv)
+// {
+// 	char	*result;
 
-	if (argc != 2)
-	{
-		printf ("Usage: %s <commande>\n", argv[0]);
-		return (1);
-	}
-	result = find_command_path(argv[1]);
-	if (result != NULL)
-		printf ("Chemin absolu yeah : %s\n", result);
-	else
-		printf ("Commande non trouvée dans PATH.\n");
-	return (0);
-}
+// 	if (argc != 2)
+// 	{
+// 		printf ("Usage: %s <commande>\n", argv[0]);
+// 		return (1);
+// 	}
+// 	result = find_command_path(argv[1]);
+// 	if (result != NULL)
+// 		printf ("Chemin absolu yeah : %s\n", result);
+// 	else
+// 		printf ("Commande non trouvée dans PATH.\n");
+// 	return (0);
+// }
 //attention verif chemins relatifs et absolus

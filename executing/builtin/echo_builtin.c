@@ -6,7 +6,7 @@
 /*   By: spagliar <spagliar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/16 10:26:20 by spagliar          #+#    #+#             */
-/*   Updated: 2024/11/16 18:10:58 by spagliar         ###   ########.fr       */
+/*   Updated: 2024/11/18 17:23:33 by spagliar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	ft_echo(char **argv, t_data *data, int fd)
 		n_flag = true;
 		i++;
 	}
-	ft_args_for_echo(argv, data, fd);
+	//ft_args_for_echo(argv, data, fd);
 	if (!n_flag)
 		ft_putstr_fd("\n", fd);
 }
@@ -69,7 +69,7 @@ void	ft_args_for_echo(char **argv, t_data *data, int fd)
 
 	while (*argv)
 	{
-		outpout = expand_variables_in_string(*argv, data);
+		//outpout = expand_variables_in_string(*argv, data);
 		if (outpout)
 		{
 			ft_putstr_fd(outpout, fd);

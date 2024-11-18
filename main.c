@@ -21,11 +21,11 @@ void	print_minishell(void)
 int	main(int ac, char **av, char **envp)
 {
 	(void)av;
-    if(ac != 1)
-        printf(RED"to many argument\n"RESET);
-	else 
+	if (ac != 1)
+		printf(RED"to many argument\n"RESET);
+	else
 	{
-   		print_minishell();
+		print_minishell();
 		ft_start(envp);
 	}
 	return (0);

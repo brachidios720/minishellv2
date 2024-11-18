@@ -6,7 +6,7 @@
 /*   By: spagliar <spagliar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/16 11:46:38 by spagliar          #+#    #+#             */
-/*   Updated: 2024/11/16 18:36:56 by spagliar         ###   ########.fr       */
+/*   Updated: 2024/11/18 17:24:47 by spagliar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,7 +91,7 @@ char *last_exit(t_data *data)
 	char *value;
 	//i += 2;
 
-	value = ft_itoa_m(data->last_exit_status);
+	value = ft_itoa_m(data->last_exit_code);
 	return(value);
 
 }

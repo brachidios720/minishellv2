@@ -6,7 +6,7 @@
 /*   By: spagliar <spagliar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/16 13:27:01 by spagliar          #+#    #+#             */
-/*   Updated: 2024/11/16 17:48:35 by spagliar         ###   ########.fr       */
+/*   Updated: 2024/11/18 17:21:57 by spagliar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,14 @@
 void	ft_update_env(t_env **env, char *old_dir, char *new_dir)
 {
 	if (old_dir)
-		ft_change_env(env, "OLDPWD", old_dir);
+	{
+		
+		//ft_change_env(env, "OLDPWD", old_dir);
+	}
 	if (new_dir)
-		ft_change_env(env, "PWD", new_dir);
+	{
+		//ft_change_env(env, "PWD", new_dir);
+	}
 }
 
 /*

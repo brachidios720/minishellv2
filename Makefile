@@ -6,12 +6,12 @@
 #    By: spagliar <spagliar@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/09/03 18:39:18 by raphaelcarb       #+#    #+#              #
-#    Updated: 2024/11/16 19:02:58 by spagliar         ###   ########.fr        #
+#    Updated: 2024/11/18 17:30:42 by spagliar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC = clang
-CFLAGS = -Wall -Werror -Wextra -g3
+CFLAGS = -g3 #-Werror -Wall -Wextra
 LDFLAGS = -lreadline -ltinfo
 EXE = minishell
 RM = rm -rf
@@ -25,7 +25,7 @@ src = executing/path.c\
 		executing/builtin/echo_builtin.c\
 		executing/builtin/echo_utils.c\
 		executing/builtin/env_builtin.c\
-		executing/builtin/export_buitin.c\
+		executing/builtin/export_builtin.c\
 		executing/builtin/unset_builtin.c\
 		executing/builtin/utils_builtin.c\
 		parsing/init.c \

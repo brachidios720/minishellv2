@@ -6,11 +6,21 @@
 /*   By: spagliar <spagliar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/16 14:05:35 by spagliar          #+#    #+#             */
-/*   Updated: 2024/11/16 17:42:38 by spagliar         ###   ########.fr       */
+/*   Updated: 2024/11/18 17:29:57 by spagliar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/minishell.h"
+
+int	ft_strcmp(const char *s1, const char *s2)
+{
+	int	i;
+
+	i = 0;
+	while (s1[i] && s1[i] == s2[i])
+		i++;
+	return ((unsigned int )s1[i] - (unsigned int)s2[i]);
+}
 
 char	*ft_get_env_value(char *name, t_env **env)
 {

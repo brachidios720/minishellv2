@@ -6,7 +6,7 @@
 /*   By: spagliar <spagliar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/16 18:23:12 by spagliar          #+#    #+#             */
-/*   Updated: 2024/11/16 18:50:06 by spagliar         ###   ########.fr       */
+/*   Updated: 2024/11/18 17:38:22 by spagliar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,6 @@ int	is_builtin(char *cmd)
 		|| ft_strncmp(cmd, "pwd", ft_strlen("pwd")) == 0
 		|| ft_strncmp(cmd, "export", ft_strlen("export")) == 0
 		|| ft_strncmp(cmd, "unset", ft_strlen("unset")) == 0)
-		return (1);
-	return (0);
+		return (true);
+	return (false);
 }

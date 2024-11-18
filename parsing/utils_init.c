@@ -24,7 +24,6 @@ t_env	*ft_env_new(char **envp, int i)
 	if (!newnode)
 		return (NULL);
 	newnode->content = ft_strdup(envp[i]);
-	//printf("%s\n", newnode);
 	newnode->next = NULL;
 	return (newnode);
 }
@@ -58,4 +57,34 @@ void	ft_change_env(t_env **env, char *name, char *new_value)
 		}
 		tmp = tmp->next;
 	}
+}
+
+int		ft_count_pipe(char *str)
+{
+	int i = 0;
+	int y = 0;
+	while(str[i])
+	{
+		if(str[i] == '|')
+			y++;
+		i++;
+	}
+	return(y);
+}
+
+
+void	ft_lst_addbackk(t_cmd **stack, t_cmd *node)
+{
+	t_cmd	*tmp;
+
+	tmp = (*stack);
+	if (tmp == NULL)
+	{
+		(*stack) = node;
+		return ;
+	}
+	while (tmp->next != NULL)
+		tmp = tmp->next;
+	tmp->next = node;
+	node->next = NULL;
 }

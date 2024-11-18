@@ -20,7 +20,8 @@ t_cmd	*ft_lsttnew(t_data *data, int i, t_cmd *cmd)
         y++;
     }
     init_heredoc(newnode, data, i);
-    printf("delimiteur = %s\n", newnode->delimiter);
+	if(newnode->heredoc)
+    	printf("delimiteur = %s\n", newnode->delimiter);
     newnode->next = NULL;
 	return (newnode);
 }

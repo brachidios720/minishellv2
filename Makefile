@@ -31,12 +31,12 @@ src = executing/path.c\
 		parsing/init.c \
 		parsing/utils_init.c \
 		parsing/utils_init2.c \
-		parsing/utils_init3.c \
 		parsing/utils.c \
 		parsing/start.c \
 		parsing/ft_check_line_error.c \
 		parsing/split_quote.c \
-		parsing/check_redir.c \
+		parsing/check_redirection.c \
+		parsing/check_heredoc.c \
 		main.c 
 
 srco = $(src:.c=.o)

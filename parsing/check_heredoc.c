@@ -1,5 +1,16 @@
 #include "../include/minishell.h"
 
+bool	check_if_heredoc(char *str)
+{
+	int i = 0;
+	while(str[i])
+	{
+		if(str[i] == '<' && str[i + 1] == '<')
+			return(TRUE);
+		i++;
+	}
+	return(FALSE);
+}
 
 char    *check_delimiteur(char *str)
 {
@@ -17,7 +28,7 @@ char    *check_delimiteur(char *str)
             j = i;
             while(str[i] != ' ' && str[i] != '\t' && str[i])
                 i++;
-            delimiteur = malloc(sizeof(char) * i - j);
+            delimiteur = malloc(sizeof(char) * i - j + 1);
             if(!delimiteur)
                 return(NULL);
             delimiteur = ft_strncpy(&str[j], delimiteur, i -j);
@@ -27,8 +38,6 @@ char    *check_delimiteur(char *str)
     }
     return(NULL);
 }
-
-
 
 void   init_heredoc(t_cmd *newnode, t_data *data, int i)
 {

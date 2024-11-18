@@ -27,3 +27,4 @@ char	*ft_strncpy(char *s1, char *s2, int n)
 	s2[i] = '\0';
 	return (s2);
 }
+

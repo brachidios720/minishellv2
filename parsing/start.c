@@ -1,13 +1,15 @@
 #include "../include/minishell.h"
 
-void    ft_exec(t_data *data, t_cmd *cmd)
+void    ft_exec(t_data *data, t_cmd **cmd)
 {
-    if (is_builtin(cmd->cmd[0]) == true)
+    t_cmd *tmp;
+    tmp = *cmd;
+    if (is_builtin(tmp->cmd[0]) == true)
     {
         dprintf(2, "this is a builtins\n");
-        if (strcmp(cmd->cmd[0], "echo") == 0)
+        if (strcmp(tmp->cmd[0], "echo") == 0)
         {
-            ft_echo(cmd->cmd, data, dup(1));
+            ft_echo(tmp->cmd, data, dup(1));
         }
     }
 }
@@ -16,7 +18,7 @@ void    ft_loop(t_env *env)
 {
     t_data *data;
     t_cmd **cmd;
-    t_cmd   *tmp_cmd = malloc(sizeof(t_cmd));
+    //t_cmd   *tmp_cmd = malloc(sizeof(t_cmd));
 
     data = NULL;
     cmd = NULL;
@@ -31,8 +33,8 @@ void    ft_loop(t_env *env)
         {
             init_data_and_cmd(line, data, cmd);
             // tu met ta fonction d'execution ici
-            tmp_cmd = *cmd;
-            ft_exec(data, tmp_cmd);
+            //tmp_cmd = *cmd;
+            ft_exec(data, cmd);
             free(line);
         }
     }

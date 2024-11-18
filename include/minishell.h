@@ -6,7 +6,7 @@
 /*   By: spagliar <spagliar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/03 15:12:37 by raphaelcarb       #+#    #+#             */
-/*   Updated: 2024/11/18 17:04:01 by spagliar         ###   ########.fr       */
+/*   Updated: 2024/11/18 19:10:32 by spagliar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -146,9 +146,10 @@ int		ft_check_cd_args(char **args);
 void	ft_echo(char **argv, t_data *data, int fd);
 bool	echo_n(char *argv);
 void	ft_args_for_echo(char **argv, t_data *data, int fd);
+char	*expand_variables_in_string(char *str, t_data *data);
 //builtin->echo_utils.c
 char	*ft_itoa_m(int n);
-char    *ft_strjoinn(char const *s1, char const *s2);
+char	*ft_strjoinn(char const *s1, char const *s2);
 int		check_dollard(char *str);
 //builtin->env_builtin.c
 void	ft_env(t_env **env);
@@ -163,8 +164,8 @@ int		ft_unset(t_env **env, char **args);
 int		is_builtin(char *cmd);
 //redirection->handle_heredoc.c
 static	int	handle_single_input_redir(t_cmd *cmd, t_data *data, t_redir *redir);
-static  int	handle_single_output_redir(t_cmd *cmd, t_redir *redir);
-void		handle_redirection(t_cmd *cmd, t_data *data);
+static	int	handle_single_output_redir(t_cmd *cmd, t_redir *redir);
+void		handle_redirection_&_fd(t_cmd *cmd, t_data *data);
 //redirection->heredoc_file.c
 static int	replace_matrice_with_heredoc_file(t_cmd *cmd);
 int		ft_heredoc(t_cmd *cmd, t_data *data);

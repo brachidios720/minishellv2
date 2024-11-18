@@ -6,7 +6,7 @@
 /*   By: spagliar <spagliar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/16 18:22:40 by spagliar          #+#    #+#             */
-/*   Updated: 2024/11/16 18:46:18 by spagliar         ###   ########.fr       */
+/*   Updated: 2024/11/18 08:35:23 by spagliar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_export(t_env **env, char **args)
 {
-	int i;
+	int	i;
 
 	if (!args[1])
 	{
@@ -37,7 +37,6 @@ void	export_with_nothing(t_env *env)
 	t_env	*ptr;
 
 	ptr = env;
-
 	while (ptr)
 	{
 		printf("declare -x %s\n", ptr->content);

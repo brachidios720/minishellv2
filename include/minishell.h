@@ -6,7 +6,7 @@
 /*   By: spagliar <spagliar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/03 15:12:37 by raphaelcarb       #+#    #+#             */
-/*   Updated: 2024/11/16 19:03:49 by spagliar         ###   ########.fr       */
+/*   Updated: 2024/11/18 14:21:26 by spagliar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@
 # define CYAN "\033[36m"
 # define RESET "\033[0m"
 
-extern int	g_signal;		//variable globale pour gestion des signaux
+extern	int	g_signal;
 typedef enum s_redir
 {
 	NO_REDIR,
@@ -59,11 +59,11 @@ typedef struct s_cmd
 	bool		heredoc;
 	char		*delimiter;
 	char		**cmd;
-	char		*in_file;
-	char		*out_file;
-	int			input_fd;
-	int			output_fd;
-	struct s_cmd *next;
+	char		*in_file;//fichier d entree
+	char		*out_file;//fichier de sortie
+	int			input_fd;//descript de fichier d entree
+	int			output_fd;//descript de fichier de sortie
+	struct	s_cmd	*next;
 }	t_cmd;
 
 typedef struct s_env
@@ -81,7 +81,7 @@ typedef struct s_data // donnees principales
 	char	*old_pwd;
 	char	*line;
 	int		last_exit_code;
-	struct t_cmd *cmd;
+	struct	t_cmd	*cmd;
 
 }	t_data;
 
@@ -95,9 +95,9 @@ void	ft_args_for_echo(char **argv, t_data *data, int fd);
 //buitin->echo_utils.c //parsing Raph
 char	*expand_variables_in_string(char *str, t_data *data);
 char	*ft_itoa_m(int n);
-char    *ft_strjoinn(char const *s1, char const *s2);
+char	*ft_strjoinn(char const *s1, char const *s2);
 char	*ft_strjoin_char(char *s1, char c);
-char 	*last_exit(t_data *data);
+char	*last_exit(t_data *data);
 int		check_dollard(char *str);
 //builtin->cd_builtin.c
 void	ft_update_env(t_env **env, char *old_pwd, char *new_pwd);
@@ -110,16 +110,20 @@ int		ft_check_cd_args(char **args);
 //builtin->pwd.c
 void	ft_env(t_env **env);
 //builtin->export.c
-void    export_with_nothing(t_env *env);
-void    export_with_variable(t_env *env, char *new_var);
-void    ft_export(t_env **env, char **args);
+void	export_with_nothing(t_env *env);
+void	export_with_variable(t_env *env, char *new_var);
+void	ft_export(t_env **env, char **args);
 //builtin->unset_builtin.c
-void    unset_with_variable(t_env **env, char *my_var);
-int     ft_unset(t_env **env, char **args);
+void	unset_with_variable(t_env **env, char *my_var);
+int		ft_unset(t_env **env, char **args);
 //builtin->env.c
 void	ft_env(t_env **env);
 //builtin->utils_buitlin.c
 int		is_builtin(char *cmd);
+//redirection->handle
+static	int	handle_single_input_redir(t_cmd *cmd, t_data *data, t_redir *redir);
+static	int	handle_single_output_redir(t_cmd *cmd, t_redir *redir);
+void	handle_redirection_with_fd(t_cmd *cmd, t_data *data, t_redir *redir);
 
 //INIT
 //--------------------------------------------------------------------
@@ -153,21 +157,21 @@ void	ft_do_all(char *str, t_cmd **cmd, t_data *data, t_cmd *new_node);
 int		ft_strcmp(const char *s1, const char *s2);
 void	print_minishell(void);
 char	**ft_strdup_tab(char **env);
-char    *ft_strcpy(char *s1 , char *s2);
+char	*ft_strcpy(char	*s1 , char *s2);
 char	*ft_strncpy(char *s1, char *s2, int n);
-char    *ft_get_env_value(char *name, t_env **env);
-char    *ft_tab(char **av);
-int     ft_lstsizee(t_cmd *cmd);
+char	*ft_get_env_value(char *name, t_env **env);
+char	*ft_tab(char **av);
+int		ft_lstsizee(t_cmd *cmd);
 //utils_env
 char	**env_list_to_array(t_env **env_list);
-int   ft_strncmp_env(const char *s1, const char *s2, size_t n);
+int		ft_strncmp_env(const char *s1, const char *s2, size_t n);
 //->parsing2.c
 int		ft_check_pipe(char *str);
 
 //->utils_parsing_line
 int		ft_isspace(char c);
 void	stock_filename(t_cmd *cmd, const char *start, int j);
-char		*ft_extract_delimiter(t_cmd *cmd, t_data *data);
+char	*ft_extract_delimiter(t_cmd *cmd, t_data *data);
 
 //->utils_parsing.c
 int		count_pipe(char *str);
@@ -184,8 +188,8 @@ void	execute_builtin_in_parent(t_cmd *cmd, t_env **env);
 char	*find_command_path(char *cmd);
 
 //signaux
-void    ft_handler(int a);
-void    ft_handlequit(int b);
+void	ft_handler(int a);
+void	ft_handlequit(int b);
 // redirection
 //-----------------------------------------------------------------
 //->handle_heredoc.c

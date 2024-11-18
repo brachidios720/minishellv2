@@ -314,5 +314,15 @@ int 	ft_nbredemott(char const *s, char c);
 char 	*ft_strdupsizee(const char *s, int size);
 int		ft_is_in_doublequote(char *str, int i);
 int		ft_is_in_quote(char *str, int i);
+void	trim_quotes(char **option);
+void	shift_str(char *str, int length);
+void	is_a_quote(char c, int *state);
+
+// check redir
+
+bool	check_if_heredoc(char *str);
+char    *check_delimiteur(char *str);
+void   init_heredoc(t_cmd *newnode, t_data *data, int i);
+char	*ft_strncpy(char *s1, char *s2, int n);
 
 #endif

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: spagliar <spagliar@student.42.fr>          +#+  +:+       +#+        */
+/*   By: almarico <almarico@student.42lehavre.fr>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/03 15:12:37 by raphaelcarb       #+#    #+#             */
-/*   Updated: 2024/11/19 13:09:43 by spagliar         ###   ########.fr       */
+/*   Updated: 2024/11/19 13:25:29 by almarico         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,7 +109,6 @@ void	init_data_and_cmd(char *line, t_data **data, t_cmd **cmd);
 void	ft_lstadd_back_list(t_env **env, t_env *new_node); // for env
 void	ft_lst_addbackk(t_cmd **stack, t_cmd *node); // for cmd
 int		ft_lstsizee(t_cmd *cmd);
-init
 void	shift_str(char *str, int length);
 void	is_a_quote(char c, int *state);
 
@@ -187,5 +186,23 @@ void	ft_handler_sig_hd(int signal);
 
 void 	ft_free(char *str, t_cmd **cmd);
 void 	ft_lstclearr(t_cmd **cmd);
+
+// utils.c
+char	*ft_strcpy(char *s1, char *s2);
+
+// utils_init.c
+t_env	*ft_env_new(char **envp, int i);
+void	ft_change_env(t_env **env, char *name, char *new_value);
+t_env	*init_env(char **envp);
+void	init_pwd(t_env **env);
+
+// split_quotes.c
+char **ft_splitt(char const *s, char c);
+
+// utils_init2.c
+void	trim_quotes(char **option);
+
+// ft_check_line_error.c
+int ft_check_pipe(char *str);
 
 #endif

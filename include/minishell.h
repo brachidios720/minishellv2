@@ -6,7 +6,7 @@
 /*   By: spagliar <spagliar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/03 15:12:37 by raphaelcarb       #+#    #+#             */
-/*   Updated: 2024/11/18 19:47:47 by spagliar         ###   ########.fr       */
+/*   Updated: 2024/11/19 13:09:43 by spagliar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,9 +96,6 @@ typedef struct s_data // donnees principales
 
 void    ft_start(char **envp);
 void    ft_loop(t_env *env);
-
-// error before loop  
-
 int     ft_check_quote(char *str);
 int     ft_check_error(char *str);
 int     ft_check_option(char *str);
@@ -108,7 +105,7 @@ int		ft_count_pipe(char *str);
 
 char    *search_in_env(t_env **env, char *name);
 t_cmd	*ft_lsttnew(t_data *data, int i, t_cmd *cmd);
-void	init_data_and_cmd(char *line, t_data *data, t_cmd **cmd);
+void	init_data_and_cmd(char *line, t_data **data, t_cmd **cmd);
 void	ft_lstadd_back_list(t_env **env, t_env *new_node); // for env
 void	ft_lst_addbackk(t_cmd **stack, t_cmd *node); // for cmd
 int		ft_lstsizee(t_cmd *cmd);
@@ -185,5 +182,10 @@ void	ft_handler_sig(int signal);
 void	ft_handlequit(int b);
 void	ft_handler_sig_cmd(int signal);
 void	ft_handler_sig_hd(int signal);
+
+// free 
+
+void 	ft_free(char *str, t_cmd **cmd);
+void 	ft_lstclearr(t_cmd **cmd);
 
 #endif

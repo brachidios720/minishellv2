@@ -37,6 +37,7 @@ src = executing/path.c\
 		parsing/split_quote.c \
 		parsing/check_redirection.c \
 		parsing/check_heredoc.c \
+		parsing/ft_free.c \
 		main.c 
 
 srco = $(src:.c=.o)

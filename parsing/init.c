@@ -46,7 +46,7 @@ void	init_data_and_cmd(char *line, t_data *data, t_cmd **cmd)
 	t_cmd *newnode;
 
 	cmd = malloc(sizeof(t_cmd *));
-	*cmd = NULL;
+
 	data = malloc(sizeof(t_data));
 	init_data(data, line); // leaks
 	int i = 0;

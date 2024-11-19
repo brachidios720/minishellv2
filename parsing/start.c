@@ -18,7 +18,7 @@ void    ft_loop(t_env *env)
 {
     t_data *data;
     t_cmd **cmd;
-    //t_cmd   *tmp_cmd = malloc(sizeof(t_cmd));
+    t_cmd   *tmp_cmd = malloc(sizeof(t_cmd));
 
     data = NULL;
     cmd = NULL;

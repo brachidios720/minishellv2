@@ -42,19 +42,17 @@ void    init_data(t_data *data, char *str)
 	data->line = ft_strdup(str); // leaks
 }
 
-void	init_data_and_cmd(char *line, t_data *data, t_cmd **cmd)
+void	init_data_and_cmd(char *line, t_data **data, t_cmd **cmd)
 {
 	t_cmd *newnode;
-
-	cmd = malloc(sizeof(t_cmd *));
-	*cmd = NULL;
-	data = malloc(sizeof(t_data));
-	init_data(data, line); // leaks
 	int i = 0;
-	while(data->cut_line[i])
+
+	*data = malloc(sizeof(t_data));
+	init_data(*data, line); // leaks
+	while((*data)->cut_line[i])
 	{
-		newnode = ft_lsttnew(data, i, *cmd); //leaks
-		i++;
+		newnode = ft_lsttnew(*data, i, *cmd); //leaks
 		ft_lst_addbackk(cmd, newnode);
+		i++;
 	}
 }

@@ -302,7 +302,7 @@ int		ft_count_pipe(char *str);
 
 char    *search_in_env(t_env **env, char *name);
 t_cmd	*ft_lsttnew(t_data *data, int i, t_cmd *cmd);
-void	init_data_and_cmd(char *line, t_data *data, t_cmd **cmd);
+void	init_data_and_cmd(char *line, t_data **data, t_cmd **cmd);
 void	ft_lstadd_back_list(t_env **env, t_env *new_node); // for env
 void	ft_lst_addbackk(t_cmd **stack, t_cmd *node); // for cmd
 int		ft_lstsizee(t_cmd *cmd);
@@ -324,5 +324,10 @@ bool	check_if_heredoc(char *str);
 char    *check_delimiteur(char *str);
 void   init_heredoc(t_cmd *newnode, t_data *data, int i);
 char	*ft_strncpy(char *s1, char *s2, int n);
+
+// free 
+
+void 	ft_free(char *str, t_cmd **cmd);
+void 	ft_lstclearr(t_cmd **cmd);
 
 #endif

@@ -4,7 +4,8 @@
 void    ft_loop(t_env *env)
 {
     t_data *data;
-    t_cmd **cmd;
+    t_cmd *cmd;
+    t_cmd *tmp;
 
     data = NULL;
     cmd = NULL;
@@ -17,9 +18,16 @@ void    ft_loop(t_env *env)
             free(line);
         else if(line[0] != '\0')
         {
-            init_data_and_cmd(line, data, cmd);
+            init_data_and_cmd(line, &data, &cmd);
             // tu met ta fonction d'execution ici
-            free(line);
+            tmp = cmd;
+            printf("lstsize = %d\n", ft_lstsizee(tmp));
+            // while(tmp->next != NULL)
+            // {
+            //    printf("==== 1\n");
+            //   tmp = tmp->next;
+            // }
+            ft_free(line, &cmd);
         }
     }
 }
